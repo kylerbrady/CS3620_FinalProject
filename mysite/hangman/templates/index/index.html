@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+<body>
+    {% block body %}
+        <title>Index</title>
+        <h1 class="text-center">Hangman Game</h1>
+        <hr>
+        <div class="conntainer text-center">
+        <img src="{%static 'img/hm6.PNG'%}">
+        </div>
+        <form class="text-center" method="POST">
+            {%  csrf_token %}
+            <label>Please input username: </label>
+            <input name="inputName" type="text" maxlength="50" minlength="1">
+            <button type="submit" class="btn-primary">Submit Info</button>
+            <br/>
+            <br>
+          <div class="row align-items-end">
+            <div>
+                <a href="{% url "hangman:gamePage" %}" class="btn btn-primary">Play</a>
+            </div>
+          </div>
+        </div>
+        </form>
+    {% endblock %}
+</body>
+</html>

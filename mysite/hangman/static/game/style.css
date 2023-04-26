@@ -1,0 +1,20 @@
+.bodyBase {
+    background-color: #A8BAE6;
+    color: Black;
+    list-style: none;
+}
+
+.pageTitle {
+    padding: 30px;
+    background-color: darkslateblue;
+    text-align: center;
+}
+
+.links {
+    color: white;
+    text-decoration: none;
+}
+
+.descStyle {
+    color: whitesmoke;
+}

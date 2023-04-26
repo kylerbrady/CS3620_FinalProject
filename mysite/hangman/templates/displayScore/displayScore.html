@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+<body>
+    {% block body %}
+        <title>Index</title>
+        <h1 class="text-center">Hangman Game</h1>
+        <hr>
+        <div class="container text-center">
+          <div class="row align-items-end">
+            <div>
+                <a href="{% url "hangman:gamePage" %}" class="btn btn-secondary">Play Again</a>
+            </div>
+          </div>
+        </div>
+    <br>
+    <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Username</th>
+              <th scope="col">Score</th>
+              <th scope="col">Word Length</th>
+              <th scope="col">Word</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for score in score_list%}
+            <tr>
+              <th scope="row">{{score.username}}</th>
+              <td>Mistakes: {{score.score}}</td>
+              <td>{{score.wordSize}}</td>
+              <td>{{score.word}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+<body>
+    {% block body %}
+        <title>Hangman</title>
+        <h1 class="text-center">Hangman Game</h1>
+        <hr>
+    <div class="conntainer text-center">
+        <img src='{%static img%}'>
+    </div>
+        <div class="container text-center">
+            <div>
+                <h1>{{message}}</h1>
+            </div>
+            <div>
+                <h2>{{ word }}</h2>
+            </div>
+            <div>
+                <h1>{{usedLetters}}</h1>
+            </div>
+            <br>
+        <form method="POST">
+            {%  csrf_token %}
+            <label>Please input a letter: </label>
+            <input name="inputChar" type="text" maxlength="1" minlength="1">
+
+            <br/>
+            <br>
+            {% if isActive == 'true' %}
+            <button type="submit" class="btn-primary">Submit Info</button>
+            {% else %}
+            <button type="submit" hidden class="btn-primary">Submit Info</button>
+            {%endif%}
+        </form>
+            <br>
+          <div class="row align-items-end">
+            <div>
+                <a href="{% url "hangman:displayScore" %}" class="btn btn-secondary">Display Scores</a>
+            </div>
+          </div>
+        </div>
+    {% endblock %}
+</body>
+</html>
